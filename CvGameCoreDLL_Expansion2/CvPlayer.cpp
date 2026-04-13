@@ -30799,7 +30799,7 @@ int CvPlayer::GetTechNeedModifier() const
 	}
 	else if (iTechDifference < 0)
 	{
-		iTechDifference *= /*0*/ GD_INT_GET(TECH_NEED_MODIFIER_PER_TECH_BELOW_MEDIAN);
+		iTechDifference *= /*0*/ -GD_INT_GET(TECH_NEED_MODIFIER_PER_TECH_BELOW_MEDIAN);
 		iTechDifference /= 100;
 	}
 
