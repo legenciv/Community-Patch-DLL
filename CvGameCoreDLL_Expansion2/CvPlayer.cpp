@@ -26143,10 +26143,7 @@ void CvPlayer::doInstantYield(InstantYieldType iType, bool bCityFaith, GreatPers
 						}
 						if(pCity != NULL)
 						{
-							if (pCity->getOwner() != GetID())
-							{
-								iValue += pReligion->m_Beliefs.GetYieldFromSpread(eYield, GetID(), pLoopCity, true) * max(1, iPassYield+1);
-							}
+							iValue += pReligion->m_Beliefs.GetYieldFromSpread(eYield, GetID(), pLoopCity, true) * max(1, iPassYield+1);
 						}
 					}
 					if (eYield == YIELD_JFD_LOYALTY && eYield == ePassYield)
@@ -26157,7 +26154,7 @@ void CvPlayer::doInstantYield(InstantYieldType iType, bool bCityFaith, GreatPers
 				{
 					if(ePlayer != NO_PLAYER && ePlayer != GetID())
 					{
-						if(GET_PLAYER(ePlayer).isMinorCiv() && eYield == YIELD_TOURISM)
+						if (!GET_PLAYER(ePlayer).isMajorCiv() && eYield == YIELD_TOURISM)
 						{
 							continue;
 						}
